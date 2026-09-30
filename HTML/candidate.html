@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Lunawat Gems - Candidate Application
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../CSS/candidate.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            LG
+        </div>
+
+        <div class="brand-text">
+
+            <strong>
+                LUNAWAT GEMS
+            </strong>
+
+            <span>
+                Crafting brilliance since 1970
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <button
+        type="button"
+        class="login-btn">
+
+        Candidate Login
+
+    </button>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="page-container">
+
+
+    <!-- =================================================
+         JOB BANNER
+    ================================================== -->
+
+    <section class="job-banner">
+
+        <div>
+
+            <h1>
+                Candidate Application
+            </h1>
+
+            <p id="jobSummary">
+                Complete your application for the selected position.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ENTRY METHOD
+    ================================================== -->
+
+    <section
+        id="entryCard"
+        class="entry-card">
+
+
+        <h2>
+            How would you like to apply?
+        </h2>
+
+
+        <p class="entry-description">
+
+            Upload your CV / Resume to automatically
+            fill available information, or manually
+            enter your details.
+
+        </p>
+
+
+        <div class="entry-options">
+
+
+            <!-- RESUME -->
+
+            <button
+                type="button"
+                id="resumeBtn"
+                class="entry-option">
+
+                <div class="entry-icon">
+                    ↑
+                </div>
+
+                <div>
+
+                    <strong>
+                        UPLOAD YOUR CV / RESUME
+                    </strong>
+
+                    <span>
+                        PDF, DOC, DOCX
+                    </span>
+
+                </div>
+
+            </button>
+
+
+
+            <!-- MANUAL -->
+
+            <button
+                type="button"
+                id="manualBtn"
+                class="entry-option">
+
+                <div class="entry-icon">
+                    ✎
+                </div>
+
+                <div>
+
+                    <strong>
+                        MANUALLY FILL FORM
+                    </strong>
+
+                    <span>
+                        Enter your details yourself
+                    </span>
+
+                </div>
+
+            </button>
+
+
+        </div>
+
+
+        <input
+            type="file"
+            id="resumeFile"
+            accept=".pdf,.doc,.docx,.txt"
+            hidden>
+
+
+        <div
+            id="parseStatus"
+            class="parse-status hidden">
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         APPLICATION
+    ================================================== -->
+
+    <section
+        id="application"
+        class="application hidden">
+
+
+        <!-- =================================================
+             PROGRESS
+        ================================================== -->
+
+        <div class="progress-container">
+
+            <div class="progress-header">
+
+                <strong id="stepTitle">
+                    Basic Details
+                </strong>
+
+                <span id="stepCount">
+                    Step 1 of 4
+                </span>
+
+            </div>
+
+
+            <div class="progress-track">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             STEP 1 - BASIC DETAILS
+        ================================================== -->
+
+        <section
+            class="form-step active"
+            data-step="1">
+
+
+            <div class="section-title">
+                Basic Details
+            </div>
+
+
+            <fieldset>
+
+                <legend>
+                    Candidate Detail
+                </legend>
+
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Candidate Name
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            id="candidateName"
+                            type="text"
+                            placeholder="Candidate Name">
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="Email">
+
+                    </div>
+
+
+
+                    <!-- CONTACT -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Contact Number
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            id="contact"
+                            type="tel"
+                            inputmode="numeric"
+                            maxlength="10"
+                            placeholder="Contact Number">
+
+                    </div>
+
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Address
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            id="address"
+                            type="text"
+                            placeholder="Address">
+
+                    </div>
+
+
+
+                    <!-- DOB -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Date Of Birth
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            id="dob"
+                            type="date">
+
+                    </div>
+
+
+
+                    <!-- NATIONALITY (default: Indian) -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Nationality
+                            <span>*</span>
+                        </label>
+
+                        <select id="nationality">
+
+                            <option value="">
+                                Select Nationality
+                            </option>
+
+                            <option value="Indian" selected>
+                                Indian
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- GENDER (default: Male) -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Gender
+                            <span>*</span>
+                        </label>
+
+                        <select id="gender">
+
+                            <option value="">
+                                Select Gender
+                            </option>
+
+                            <option value="Male" selected>
+                                Male
+                            </option>
+
+                            <option value="Female">
+                                Female
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- BLOOD GROUP -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Blood Group
+                        </label>
+
+                        <select id="bloodGroup">
+
+                            <option value="">
+                                Select Blood Group
+                            </option>
+
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- MARITAL STATUS (default: Single) -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Marital Status
+                            <span>*</span>
+                        </label>
+
+                        <select id="maritalStatus">
+
+                            <option value="">
+                                Select Status
+                            </option>
+
+                            <option value="Single" selected>
+                                Single
+                            </option>
+
+                            <option value="Married">
+                                Married
+                            </option>
+
+                            <option value="Divorced">
+                                Divorced
+                            </option>
+
+                            <option value="Widowed">
+                                Widowed
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+            </fieldset>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STEP 2 - EXPERIENCE
+        ================================================== -->
+
+        <section
+            class="form-step"
+            data-step="2">
+
+
+            <div class="section-title">
+                Experience Information
+            </div>
+
+
+            <fieldset>
+
+                <legend>
+                    Experience Info
+                </legend>
+
+
+                <!-- FRESHER -->
+
+                <label class="checkbox-line">
+
+                    <input
+                        type="checkbox"
+                        id="fresher">
+
+                    <span>
+                        I'm a fresher
+                    </span>
+
+                </label>
+
+
+
+                <div id="experienceArea">
+
+
+                    <!-- TOTAL EXPERIENCE -->
+
+                    <div class="single-field">
+
+                        <label>
+                            Total Experience
+                        </label>
+
+                        <select id="totalExperience">
+
+                            <option value="">
+                                Select Experience
+                            </option>
+
+                            <option>
+                                0-1 Year
+                            </option>
+
+                            <option>
+                                1-3 Years
+                            </option>
+
+                            <option>
+                                3-5 Years
+                            </option>
+
+                            <option>
+                                5-10 Years
+                            </option>
+
+                            <option>
+                                10+ Years
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- =================================
+                         RELEVANT EXPERIENCE
+                    ================================== -->
+
+                    <div class="sub-heading">
+
+                        Relevant Industry Experience
+
+                    </div>
+
+
+                    <div id="relevantExperience">
+                    </div>
+
+
+
+                    <!-- =================================
+                         OTHER EXPERIENCE
+                    ================================== -->
+
+                    <div class="sub-heading">
+
+                        Other Industry Experience
+
+                    </div>
+
+
+                    <div id="otherExperience">
+                    </div>
+
+
+                </div>
+
+            </fieldset>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STEP 3 - EDUCATION
+        ================================================== -->
+
+        <section
+            class="form-step"
+            data-step="3">
+
+
+            <div class="section-title">
+                Education Information
+            </div>
+
+
+
+            <!-- EDUCATION -->
+
+            <fieldset>
+
+                <legend>
+                    Education Information
+                </legend>
+
+
+                <div id="educationArea">
+                </div>
+
+
+            </fieldset>
+
+
+
+            <!-- SKILLS -->
+
+            <fieldset>
+
+                <legend>
+                    Skills
+                </legend>
+
+
+                <!-- TOGGLE BUTTON (visible by default) -->
+
+                <button
+                    type="button"
+                    id="addSkillBtn"
+                    class="add-toggle-btn">
+
+                    + ADD SKILL
+
+                </button>
+
+
+                <!-- SKILLS PANEL (hidden by default) -->
+
+                <div
+                    id="skillsPanel"
+                    class="add-panel hidden">
+
+
+                    <div
+                        id="skillsList"
+                        class="tag-list">
+
+                        <span class="empty">
+                            No Skills Added
+                        </span>
+
+                    </div>
+
+
+                    <div class="inline-add">
+
+                        <input
+                            type="text"
+                            id="skillInput"
+                            placeholder="Enter Skill">
+
+                        <button
+                            type="button"
+                            id="saveSkill"
+                            class="save-small">
+
+                            SAVE
+
+                        </button>
+
+                        <button
+                            type="button"
+                            id="cancelSkillBtn"
+                            class="cancel-small">
+
+                            CANCEL
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </fieldset>
+
+
+
+            <!-- CERTIFICATES -->
+
+            <fieldset>
+
+                <legend>
+                    Certificates
+                </legend>
+
+
+                <!-- TOGGLE BUTTON (visible by default) -->
+
+                <button
+                    type="button"
+                    id="addCertificateBtn"
+                    class="add-toggle-btn">
+
+                    + ADD CERTIFICATE
+
+                </button>
+
+
+                <!-- CERTIFICATES PANEL (hidden by default) -->
+
+                <div
+                    id="certificatePanel"
+                    class="add-panel hidden">
+
+
+                    <div
+                        id="certificateList"
+                        class="tag-list">
+
+                        <span class="empty">
+                            No Certificates Added
+                        </span>
+
+                    </div>
+
+
+                    <div class="inline-add">
+
+                        <input
+                            type="text"
+                            id="certificateInput"
+                            placeholder="Enter Certificate">
+
+                        <button
+                            type="button"
+                            id="saveCertificate"
+                            class="save-small">
+
+                            SAVE
+
+                        </button>
+
+                        <button
+                            type="button"
+                            id="cancelCertificateBtn"
+                            class="cancel-small">
+
+                            CANCEL
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </fieldset>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             STEP 4 - ADDITIONAL INFORMATION
+        ================================================== -->
+
+        <section
+            class="form-step"
+            data-step="4">
+
+
+            <div class="section-title">
+                Additional Information
+            </div>
+
+
+            <fieldset>
+
+                <legend>
+                    Additional Information
+                </legend>
+
+
+                <div class="form-grid">
+
+
+                    <!-- DISABILITY (default: No) -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Disability Information
+                            <span>*</span>
+                        </label>
+
+                        <select id="disability">
+
+                            <option value="">
+                                Select
+                            </option>
+
+                            <option value="No" selected>
+                                No
+                            </option>
+
+                            <option value="Yes">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- MILITARY (default: No) -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Military Services
+                        </label>
+
+                        <select id="military">
+
+                            <option value="No" selected>
+                                No
+                            </option>
+
+                            <option value="Yes">
+                                Yes
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- DISTANCE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Distance to Office (in km)
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            id="distance"
+                            type="number"
+                            min="0"
+                            step="0.1"
+                            placeholder="Distance">
+
+                        <small class="hint">
+
+                            Lunawat Gems,
+                            H-172 & H-173,
+                            SEZ-II, Sitapura, Jaipur
+
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- AVAILABILITY -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Availability to Join
+                            <span>*</span>
+                        </label>
+
+                        <select id="availability">
+
+                            <option value="">
+                                Select Availability
+                            </option>
+
+                            <option>
+                                Immediately
+                            </option>
+
+                            <option>
+                                Within 7 Days
+                            </option>
+
+                            <option>
+                                Within 15 Days
+                            </option>
+
+                            <option>
+                                Within 30 Days
+                            </option>
+
+                            <option>
+                                More than 30 Days
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- SOURCE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            How Did You Hear About This Job?
+                            <span>*</span>
+                        </label>
+
+                        <select id="source">
+
+                            <option value="">
+                                Select Source
+                            </option>
+
+                            <option>
+                                LinkedIn
+                            </option>
+
+                            <option>
+                                Naukri
+                            </option>
+
+                            <option>
+                                Company Website
+                            </option>
+
+                            <option>
+                                Employee Reference
+                            </option>
+
+                            <option>
+                                Consultant
+                            </option>
+
+                            <option>
+                                Walk-in
+                            </option>
+
+                            <option>
+                                Social Media
+                            </option>
+
+                            <option>
+                                Reference
+                            </option>
+
+                            <option>
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- REFERENCE -->
+
+                    <div
+                        id="referenceWrap"
+                        class="form-group hidden">
+
+                        <label>
+                            Reference Name / Employee ID
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            id="referenceName"
+                            type="text"
+                            placeholder="Reference Name">
+
+                    </div>
+
+
+
+                    <!-- LAST SALARY -->
+
+                    <div
+                        id="lastSalaryWrap"
+                        class="form-group">
+
+                        <label>
+                            Last Drawn Salary
+                            (CTC/Monthly)
+                        </label>
+
+                        <input
+                            id="lastSalary"
+                            type="number"
+                            placeholder="Last Drawn Salary">
+
+                    </div>
+
+
+
+                    <!-- EXPECTED SALARY -->
+
+                    <div
+                        id="expectedSalaryWrap"
+                        class="form-group">
+
+                        <label>
+                            Expected Salary
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            id="expectedSalary"
+                            type="number"
+                            placeholder="Expected Salary">
+
+                    </div>
+
+
+
+                    <!-- NEGOTIABLE -->
+
+                    <div class="form-group checkbox-box">
+
+                        <label class="checkbox-line">
+
+                            <input
+                                id="negotiable"
+                                type="checkbox">
+
+                            <span>
+                                Is Negotiable?
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                </div>
+
+            </fieldset>
+
+
+
+            <!-- DOCUMENT -->
+
+            <fieldset>
+
+                <legend>
+                    Document Info / दस्तावेज़ जानकारी
+                </legend>
+
+
+                <div class="document-note">
+
+                    Aadhaar should be handled through
+                    the approved verification process.
+                    Aadhaar should not be extracted
+                    from the resume.
+
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- UPLOAD AADHAAR -->
+
+                    <div class="form-group">
+
+                              <label>
+                            Aadhaar number
+                        </label>
+
+                        <input
+                            id="aadhaarNumber"
+                            type="text"
+                            inputmode="numeric"
+                            maxlength="12"
+                            placeholder="Enter Aadhaar Number">
+
+                        <label>
+                            Upload Aadhaar
+                        </label>
+
+                        <input
+                            id="aadhaarFile"
+                            type="file"
+                            accept=".pdf,.jpg,.jpeg,.png">
+
+                        <small class="hint">
+
+                            Don't have Aadhaar file?
+
+                            <a
+                                href="https://myaadhaar.uidai.gov.in/genricDownloadAadhaar/en"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="download-link">
+
+                                Download from UIDAI
+
+                            </a>
+
+                            and upload it here.
+
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+                       <!-- =================================================
+                     DECLARATION
+                ================================================== -->
+
+                <div class="declaration-box">
+
+                    <label class="checkbox-line">
+
+                        <input
+                            id="declarationCheck"
+                            type="checkbox">
+
+                        <span>
+                            I hereby declare that all the
+                            information provided above is true,
+                            complete and correct to the best of
+                            my knowledge, and the documents
+                            uploaded belong to me.
+                        </span>
+
+                    </label>
+
+            </fieldset>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <div class="navigation">
+
+
+            <button
+                type="button"
+                id="backBtn"
+                class="back-btn">
+
+                BACK
+
+            </button>
+
+
+            <div class="navigation-right">
+
+                <span
+                    id="saveMessage"
+                    class="save-message">
+                </span>
+
+
+                <button
+                    type="button"
+                    id="nextBtn"
+                    class="next-btn">
+
+                    NEXT
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    id="toast"
+    class="toast">
+
+    <div
+        id="toastIcon"
+        class="toast-icon">
+        !
+    </div>
+
+    <div
+        id="toastMessage"
+        class="toast-message">
+    </div>
+
+    <button
+        type="button"
+        id="toastClose"
+        class="toast-close">
+
+        ×
+
+    </button>
+
+</div>
+
+
+
+<script
+    src="../JS/candidate.js">
+</script>
+
+</body>
+
+</html>

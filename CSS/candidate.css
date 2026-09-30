@@ -1,0 +1,1270 @@
+/* =========================================================
+   LUNAWAT GEMS - CANDIDATE PORTAL
+   COMPLETE RESPONSIVE CSS
+========================================================= */
+
+
+/* =========================================================
+   1. RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f7;
+    color: #17212b;
+    line-height: 1.4;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Hide number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+/* =========================================================
+   2. COLORS
+========================================================= */
+
+:root {
+    --blue: #254d8b;
+    --blue-dark: #193b70;
+
+    --green: #315e5a;
+    --green-dark: #24443f;
+    --green-light: #547f76;
+
+    --gold: #c58d00;
+    --gold-dark: #a87600;
+
+    --red: #c62828;
+    --red-light: #fff0f0;
+
+    --success: #287a55;
+    --success-light: #eaf8f0;
+
+    --warning: #9a6900;
+    --warning-light: #fff8df;
+
+    --border: #cfd5db;
+    --light-border: #e3e6e9;
+
+    --text: #17212b;
+    --muted: #6c757d;
+}
+
+
+/* =========================================================
+   3. HEADER
+========================================================= */
+
+.topbar {
+    width: 100%;
+    min-height: 62px;
+    background: #ffffff;
+    border-bottom: 1px solid #dcdcdc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 36px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.brand-text strong {
+    display: block;
+    color: #111111;
+    font-size: 15px;
+}
+
+.brand-text span {
+    display: block;
+    color: #777777;
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+.login-btn {
+    border: 0;
+    background: var(--blue);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    transition: background 0.2s ease;
+}
+
+.login-btn:hover {
+    background: var(--blue-dark);
+}
+
+
+/* =========================================================
+   4. PAGE CONTAINER
+========================================================= */
+
+.page-container {
+    width: calc(100% - 50px);
+    max-width: 1450px;
+    margin: 20px auto 60px;
+}
+
+
+/* =========================================================
+   5. JOB BANNER
+========================================================= */
+
+.job-banner {
+    background: linear-gradient(100deg, #21467f, #315b9b);
+    color: #ffffff;
+    border-radius: 9px;
+    padding: 22px 28px;
+    margin-bottom: 18px;
+}
+
+.job-banner h1 {
+    margin: 0 0 6px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.job-banner p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   6. ENTRY CARD
+========================================================= */
+
+.entry-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+}
+
+.entry-card h2 {
+    margin: 0 0 7px;
+    font-size: 24px;
+}
+
+.entry-description {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.entry-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 22px;
+}
+
+.entry-option {
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 22px;
+    text-align: left;
+    border: 0;
+    border-radius: 9px;
+    background: var(--blue);
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    transition: 0.2s ease;
+}
+
+.entry-option:hover {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+}
+
+.entry-option strong {
+    display: block;
+    font-size: 14px;
+}
+
+.entry-option div:last-child span {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+.entry-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   7. PARSE STATUS
+========================================================= */
+
+.parse-status {
+    margin-top: 15px;
+    padding: 12px 14px;
+    border-radius: 7px;
+    background: #eef5ff;
+    color: var(--blue);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   8. APPLICATION
+========================================================= */
+
+.application {
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   9. PROGRESS
+========================================================= */
+
+.progress-container {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+    font-size: 13px;
+}
+
+.progress-track {
+    height: 7px;
+    background: #e7e9ec;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 25%;
+    background: var(--blue);
+    transition: width 0.25s ease;
+}
+
+
+/* =========================================================
+   10. FORM STEPS
+========================================================= */
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================================================
+   11. SECTION TITLE
+========================================================= */
+
+.section-title {
+    background: var(--blue);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   12. FIELDSET
+========================================================= */
+
+fieldset {
+    border: 1px solid var(--border);
+    background: #fafafa;
+    padding: 22px;
+    margin: 0 0 20px;
+    border-radius: 5px;
+}
+
+legend {
+    background: var(--green-light);
+    color: #ffffff;
+    padding: 9px 17px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   13. NORMAL FORM GRID
+========================================================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px 25px;
+}
+
+.form-group {
+    min-width: 0;
+}
+
+.form-group label,
+.single-field label {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #17212b;
+}
+
+.form-group label span {
+    color: var(--red);
+}
+
+input,
+select {
+    width: 100%;
+    height: 42px;
+    margin-top: 7px;
+    border: 1px solid #cbd0d5;
+    border-radius: 6px;
+    padding: 8px 12px;
+    background: #ffffff;
+    color: #26313c;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(37, 77, 139, 0.10);
+}
+
+input[readonly] {
+    background: #eeeeee;
+}
+
+
+/* =========================================================
+   14. VALIDATION
+========================================================= */
+
+.input-error {
+    border-color: var(--red) !important;
+    background: var(--red-light) !important;
+    box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.08) !important;
+}
+
+
+/* =========================================================
+   15. CHECKBOX
+========================================================= */
+
+.checkbox-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.checkbox-line input {
+    width: 17px;
+    height: 17px;
+    min-height: 17px;
+    margin: 0;
+}
+
+
+/* =========================================================
+   16. SUB HEADING
+========================================================= */
+
+.sub-heading {
+    background: var(--green-light);
+    color: #ffffff;
+    padding: 9px 20px;
+    width: fit-content;
+    border-radius: 8px;
+    margin: 24px auto 14px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   17. EXPERIENCE CARD
+========================================================= */
+
+.experience-card {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #d3d7db;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   18. EXPERIENCE HEADER
+========================================================= */
+
+.experience-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.experience-header h4 {
+    margin: 0;
+    color: var(--blue);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.record-status {
+    padding: 6px 12px;
+    border-radius: 18px;
+    background: var(--warning-light);
+    color: var(--warning);
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.record-status.saved {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+
+/* =========================================================
+   19. EXPERIENCE GRID
+   Relevant card → 7 columns (NO Industry field)
+   Other card    → 8 columns (WITH Industry field)
+========================================================= */
+
+/* --- Base: Relevant Experience (7 columns) --- */
+
+.exp-grid {
+    display: grid;
+
+    /*
+       1 Company
+       2 Start Date
+       3 End Date
+       4 Designation
+       5 Location
+       6 Team Handling
+       7 People Handling
+    */
+    grid-template-columns:
+        1.55fr   /* Company */
+        1fr      /* Start Date */
+        1fr      /* End Date */
+        1.15fr   /* Designation */
+        1fr      /* Location */
+        1fr      /* Team Handling */
+        1fr;     /* People Handling */
+
+    gap: 12px;
+    width: 100%;
+    align-items: start;
+}
+
+
+/* --- Other Experience (8 columns, includes Industry) --- */
+
+.other-card .exp-grid {
+    grid-template-columns:
+        1.55fr   /* Company */
+        1fr      /* Start Date */
+        1fr      /* End Date */
+        1.15fr   /* Designation */
+        1fr      /* Industry */
+        1fr      /* Location */
+        1fr      /* Team Handling */
+        1fr;     /* People Handling */
+}
+
+
+/* Every field stays inside its column */
+
+.exp-grid .form-group {
+    min-width: 0;
+    width: 100%;
+}
+
+
+/* Experience labels */
+
+.exp-grid .form-group > label {
+    display: block;
+    min-height: 38px;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+
+/* Experience input */
+
+.exp-grid input,
+.exp-grid select {
+    width: 100%;
+    height: 52px;
+    margin-top: 0;
+    padding: 10px 12px;
+    border: 1px solid #cbd0d5;
+    border-radius: 6px;
+    background: #ffffff;
+    font-size: 13px;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   20. TEAM HANDLING
+========================================================= */
+
+.checkbox-field {
+    width: 100%;
+    height: 52px;
+    margin-top: 0;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #cbd0d5;
+    border-radius: 6px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.checkbox-field input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    min-height: 18px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0;
+}
+
+.checkbox-field span {
+    font-size: 13px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   21. EXPERIENCE ACTION
+   BUTTONS IN SAME ROW
+========================================================= */
+
+.experience-action {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    padding-top: 13px;
+    border-top: 1px solid #e3e5e7;
+}
+
+.experience-action .save-experience-btn {
+    margin-left: auto;
+}
+
+.experience-action button {
+    border: 0;
+    border-radius: 7px;
+    min-height: 38px;
+    padding: 8px 13px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: 0.2s ease;
+}
+
+/* SAVE */
+.save-experience-btn {
+    background: var(--green);
+    color: #ffffff;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.12);
+}
+
+.save-experience-btn:hover {
+    background: var(--green-dark);
+}
+
+/* REMOVE */
+.remove-experience-btn {
+    background: #ffffff;
+    color: #a33;
+    border: 1px solid #c98b8b !important;
+}
+
+.remove-experience-btn:hover {
+    background: #fff1f1;
+}
+
+/* SEND TO OTHER */
+.send-other-btn {
+    background: #6c7f94;
+    color: #ffffff;
+}
+
+.send-other-btn:hover {
+    background: #526477;
+}
+
+/* ADD ANOTHER */
+.add-experience-action-btn {
+    background: var(--gold);
+    color: #ffffff;
+}
+
+.add-experience-action-btn:hover {
+    background: var(--gold-dark);
+}
+
+
+/* =========================================================
+   22. EDUCATION
+========================================================= */
+
+.education-card {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #d3d7db;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 14px;
+}
+
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.education-header h4 {
+    margin: 0;
+    color: var(--blue);
+    font-size: 17px;
+}
+
+.edu-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1.2fr 1fr 1fr;
+    gap: 14px;
+}
+
+
+/* =========================================================
+   23. TAG LIST
+========================================================= */
+
+.tag-list {
+    min-height: 45px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid #d2d6da;
+    background: #ffffff;
+    border-radius: 6px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border-radius: 20px;
+    background: #eaf1fb;
+    color: var(--blue);
+    font-size: 13px;
+}
+
+.tag button {
+    border: 0;
+    background: transparent;
+    color: #a33;
+    font-weight: 700;
+    padding: 0;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.empty {
+    color: #777;
+    padding: 6px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* =========================================================
+   24. INLINE ADD
+========================================================= */
+
+.inline-add {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.inline-add input {
+    margin: 0;
+}
+
+.save-small {
+    min-width: 75px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--blue);
+    color: #ffffff;
+    padding: 9px 14px;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+.save-small:hover {
+    background: var(--blue-dark);
+}
+
+
+/* =========================================================
+   25. CONDITIONAL BOX
+========================================================= */
+
+.conditional-box {
+    margin-top: 20px;
+    padding: 17px;
+    background: #f3f5f7;
+    border: 1px solid #dce0e4;
+    border-radius: 8px;
+}
+
+.people-handling-wrap {
+    max-width: 300px;
+    margin-top: 10px;
+}
+
+.hint {
+    display: block;
+    color: #666;
+    font-size: 11px;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   26. DOCUMENT NOTE
+========================================================= */
+
+.document-note {
+    padding: 12px;
+    background: #fff8dc;
+    border-left: 4px solid var(--gold);
+    margin-bottom: 18px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   27. NAVIGATION
+========================================================= */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.navigation-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.back-btn,
+.next-btn {
+    border: 0;
+    border-radius: 8px;
+    min-height: 44px;
+    padding: 11px 24px;
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    transition: background 0.2s ease;
+}
+
+.back-btn {
+    background: #624332;
+}
+
+.back-btn:hover {
+    background: #4d3223;
+}
+
+.next-btn {
+    background: var(--gold);
+}
+
+.next-btn:hover {
+    background: var(--gold-dark);
+}
+
+.save-message {
+    color: var(--green);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   28. TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    transform: translate(-50%, 120px);
+    width: min(500px, 92%);
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.20);
+    border-left: 5px solid var(--red);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    z-index: 5000;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+}
+
+.toast.success {
+    border-left-color: var(--success);
+}
+
+.toast.error {
+    border-left-color: var(--red);
+}
+
+.toast.warning {
+    border-left-color: var(--gold);
+}
+
+.toast-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--red);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.toast.success .toast-icon {
+    background: var(--success);
+}
+
+.toast.warning .toast-icon {
+    background: var(--gold);
+}
+
+.toast-message {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.toast-close {
+    border: 0;
+    background: transparent;
+    color: #777;
+    font-size: 20px;
+    padding: 3px 5px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   29. DESKTOP LARGE SCREEN
+========================================================= */
+
+@media (min-width: 1400px) {
+    .page-container {
+        max-width: 1450px;
+    }
+
+    .exp-grid {
+        gap: 14px;
+    }
+
+    .exp-grid .form-group label {
+        font-size: 15px;
+    }
+
+    .exp-grid input,
+    .exp-grid select,
+    .checkbox-field {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   30. TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+    .page-container {
+        width: calc(100% - 30px);
+    }
+
+    /*
+       On tablet, experience fields become 4 columns.
+       Works for both relevant (7 fields) and other (8 fields).
+    */
+
+    .exp-grid,
+    .other-card .exp-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   31. MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+    .topbar {
+        min-height: 58px;
+        padding: 7px 12px;
+    }
+
+    .brand-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand-text strong {
+        font-size: 12px;
+    }
+
+    .brand-text span {
+        display: none;
+    }
+
+    .login-btn {
+        padding: 8px 11px;
+        font-size: 10px;
+    }
+
+    .page-container {
+        width: 94%;
+        margin-top: 12px;
+    }
+
+    .job-banner {
+        padding: 18px;
+    }
+
+    .job-banner h1 {
+        font-size: 23px;
+    }
+
+    .entry-card {
+        padding: 18px;
+    }
+
+    .entry-options {
+        grid-template-columns: 1fr;
+    }
+
+    .entry-option {
+        min-height: 75px;
+        padding: 14px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    fieldset {
+        padding: 18px 12px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /*
+       MOBILE EXPERIENCE
+       Both relevant & other → single column
+    */
+
+    .exp-grid,
+    .other-card .exp-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .exp-grid .form-group > label {
+        min-height: auto;
+        margin-bottom: 6px;
+    }
+
+    .exp-grid input,
+    .exp-grid select,
+    .checkbox-field {
+        height: 46px;
+    }
+
+    .experience-action {
+        flex-wrap: wrap;
+        justify-content: stretch;
+    }
+
+    .experience-action button {
+        flex: 1 1 100%;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .experience-action .save-experience-btn {
+        margin-left: 0;
+    }
+
+    .experience-header h4 {
+        font-size: 17px;
+    }
+
+    .edu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inline-add {
+        grid-template-columns: 1fr;
+    }
+
+    .save-small {
+        width: 100%;
+    }
+
+    .sub-heading {
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    .navigation {
+        position: sticky;
+        bottom: 0;
+        background: #ffffff;
+        padding: 10px;
+        margin-left: -3%;
+        margin-right: -3%;
+        border-top: 1px solid #ddd;
+        z-index: 500;
+    }
+
+    .navigation-right {
+        gap: 8px;
+    }
+
+    .save-message {
+        display: none;
+    }
+
+    .back-btn,
+    .next-btn {
+        min-height: 44px;
+        padding: 10px 17px;
+    }
+}
+
+
+/* =========================================================
+   32. VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+    .experience-card {
+        padding: 13px;
+    }
+
+    .experience-action button {
+        font-size: 10px;
+        padding: 8px 9px;
+    }
+
+    .back-btn,
+    .next-btn {
+        padding: 9px 13px;
+        font-size: 12px;
+    }
+}
+
+/* =========================================================
+   AADHAAR UPLOAD + DOWNLOAD LINK
+========================================================= */
+
+input[type="file"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #cbd0d5;
+    border-radius: 6px;
+    background: #ffffff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+    border: 0;
+    background: var(--blue);
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: var(--blue-dark);
+}
+
+.download-link {
+    color: var(--blue);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.download-link:hover {
+    color: var(--blue-dark);
+}
