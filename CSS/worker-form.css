@@ -997,3 +997,138 @@ input[type="file"]::file-selector-button:hover {
         font-size: 12px;
     }
 }
+
+
+/* =========================================================
+   LIVE PHOTO CAPTURE
+========================================================= */
+
+.photo-capture-btn {
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: background 0.2s ease;
+    cursor: pointer;
+    background: var(--green);
+    color: #ffffff;
+}
+
+.photo-capture-btn:hover {
+    background: var(--green-dark);
+}
+
+
+/* =========================================================
+   CAMERA MODAL
+========================================================= */
+
+.camera-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 16px;
+}
+
+.camera-modal-inner {
+    background: #ffffff;
+    border-radius: 12px;
+    max-width: 520px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.camera-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e3e6e9;
+    background: #fafafa;
+}
+
+.camera-header strong {
+    font-size: 15px;
+    color: var(--text);
+}
+
+.camera-close-btn {
+    border: 0;
+    background: transparent;
+    color: #666;
+    font-size: 24px;
+    line-height: 1;
+    padding: 0 6px;
+    cursor: pointer;
+}
+
+.camera-close-btn:hover {
+    color: #a33;
+}
+
+.camera-body {
+    background: #000000;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.camera-body video,
+.camera-body canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.camera-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-top: 1px solid #e3e6e9;
+    background: #fafafa;
+    flex-wrap: wrap;
+}
+
+.camera-footer button {
+    min-width: 100px;
+}
+
+
+/* =========================================================
+   MOBILE TWEAKS
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .camera-modal-inner {
+        max-width: 100%;
+        border-radius: 0;
+        height: 100%;
+    }
+
+    .camera-body {
+        flex: 1;
+        aspect-ratio: auto;
+    }
+
+    .camera-footer {
+        padding: 14px;
+    }
+
+    .camera-footer button {
+        flex: 1;
+        min-width: 0;
+    }
+}

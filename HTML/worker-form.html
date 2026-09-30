@@ -126,6 +126,8 @@
 
                 <!-- PHOTO UPLOAD -->
 
+                              <!-- PHOTO UPLOAD -->
+
                 <div class="photo-upload-box">
 
                     <label class="photo-label">
@@ -148,11 +150,16 @@
 
                         <div class="photo-controls">
 
+                            <!-- HIDDEN FILE INPUT -->
+
                             <input
                                 id="photoFile"
                                 type="file"
                                 accept="image/*"
                                 hidden>
+
+
+                            <!-- CHOOSE FROM DEVICE -->
 
                             <button
                                 type="button"
@@ -162,6 +169,21 @@
                                 Choose Photo
 
                             </button>
+
+
+                            <!-- LIVE CAMERA CAPTURE -->
+
+                            <button
+                                type="button"
+                                id="photoCaptureBtn"
+                                class="photo-capture-btn">
+
+                                📷 Take Live Photo
+
+                            </button>
+
+
+                            <!-- REMOVE -->
 
                             <button
                                 type="button"
@@ -176,6 +198,91 @@
                                 Passport size, JPG or PNG,
                                 max 2 MB.
                             </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     CAMERA MODAL (hidden until user clicks)
+                ============================================== -->
+
+                <div
+                    id="cameraModal"
+                    class="camera-modal hidden">
+
+                    <div class="camera-modal-inner">
+
+                        <div class="camera-header">
+
+                            <strong>
+                                Take Live Photo /
+                                लाइव फोटो लें
+                            </strong>
+
+                            <button
+                                type="button"
+                                id="cameraCloseBtn"
+                                class="camera-close-btn">
+
+                                ×
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="camera-body">
+
+                            <video
+                                id="cameraStream"
+                                autoplay
+                                playsinline
+                                muted>
+
+                            </video>
+
+                            <canvas
+                                id="cameraCanvas"
+                                class="hidden">
+
+                            </canvas>
+
+                        </div>
+
+
+                        <div class="camera-footer">
+
+                            <button
+                                type="button"
+                                id="cameraCaptureBtn"
+                                class="photo-btn">
+
+                                Capture
+
+                            </button>
+
+                            <button
+                                type="button"
+                                id="cameraRetakeBtn"
+                                class="photo-remove-btn hidden">
+
+                                Retake
+
+                            </button>
+
+                            <button
+                                type="button"
+                                id="cameraSaveBtn"
+                                class="photo-btn hidden">
+
+                                Use This Photo
+
+                            </button>
 
                         </div>
 

@@ -54,8 +54,32 @@ const photoPreview =
 const photoUploadBtn =
     document.getElementById("photoUploadBtn");
 
+const photoCaptureBtn =
+    document.getElementById("photoCaptureBtn");
+
 const photoRemoveBtn =
     document.getElementById("photoRemoveBtn");
+
+const cameraModal =
+    document.getElementById("cameraModal");
+
+const cameraStream =
+    document.getElementById("cameraStream");
+
+const cameraCanvas =
+    document.getElementById("cameraCanvas");
+
+const cameraCloseBtn =
+    document.getElementById("cameraCloseBtn");
+
+const cameraCaptureBtn =
+    document.getElementById("cameraCaptureBtn");
+
+const cameraRetakeBtn =
+    document.getElementById("cameraRetakeBtn");
+
+const cameraSaveBtn =
+    document.getElementById("cameraSaveBtn");
 
 const toast = document.getElementById("toast");
 const toastIcon = document.getElementById("toastIcon");
@@ -151,6 +175,208 @@ photoRemoveBtn.addEventListener("click", function () {
     this.classList.add("hidden");
 
     showToast("Photo removed.", "success");
+});
+
+
+/* =========================================================
+   LIVE CAMERA CAPTURE
+========================================================= */
+
+let cameraMediaStream = null;
+
+let capturedImageData = "";
+
+
+/* OPEN CAMERA */
+
+photoCaptureBtn.addEventListener("click", async function () {
+
+    /* Check browser support */
+
+    if (
+        !navigator.mediaDevices ||
+        !navigator.mediaDevices.getUserMedia
+    ) {
+        showToast(
+            "Live camera is not supported on this device."
+        );
+        return;
+    }
+
+    try {
+        cameraMediaStream =
+            await navigator.mediaDevices.getUserMedia({
+                video: {
+                    facingMode: "user",
+                    width: { ideal: 640 },
+                    height: { ideal: 480 }
+                },
+                audio: false
+            });
+
+        cameraStream.srcObject = cameraMediaStream;
+
+        cameraModal.classList.remove("hidden");
+
+        /* Reset controls for fresh open */
+
+        cameraCaptureBtn.classList.remove("hidden");
+        cameraRetakeBtn.classList.add("hidden");
+        cameraSaveBtn.classList.add("hidden");
+
+        cameraStream.classList.remove("hidden");
+        cameraCanvas.classList.add("hidden");
+
+        capturedImageData = "";
+
+    } catch (error) {
+        console.error(error);
+
+        showToast(
+            "Unable to access camera. Please allow permission."
+        );
+    }
+});
+
+
+/* CAPTURE FRAME */
+
+cameraCaptureBtn.addEventListener("click", function () {
+
+    const video = cameraStream;
+    const canvas = cameraCanvas;
+
+    const width = video.videoWidth;
+    const height = video.videoHeight;
+
+    if (!width || !height) {
+        showToast("Camera not ready. Please wait.");
+        return;
+    }
+
+    canvas.width = width;
+    canvas.height = height;
+
+    const ctx = canvas.getContext("2d");
+
+    ctx.drawImage(video, 0, 0, width, height);
+
+    capturedImageData = canvas.toDataURL("image/jpeg", 0.85);
+
+    /* Show captured photo */
+
+    video.classList.add("hidden");
+    canvas.classList.remove("hidden");
+
+    cameraCaptureBtn.classList.add("hidden");
+    cameraRetakeBtn.classList.remove("hidden");
+    cameraSaveBtn.classList.remove("hidden");
+});
+
+
+/* RETAKE */
+
+cameraRetakeBtn.addEventListener("click", function () {
+
+    capturedImageData = "";
+
+    cameraStream.classList.remove("hidden");
+    cameraCanvas.classList.add("hidden");
+
+    cameraCaptureBtn.classList.remove("hidden");
+    cameraRetakeBtn.classList.add("hidden");
+    cameraSaveBtn.classList.add("hidden");
+});
+
+
+/* SAVE / USE THIS PHOTO */
+
+cameraSaveBtn.addEventListener("click", function () {
+
+    if (!capturedImageData) {
+        showToast("Please capture a photo first.");
+        return;
+    }
+
+    /* Check size (2 MB) */
+
+    const approxBytes =
+        (capturedImageData.length * 3) / 4;
+
+    if (approxBytes > 2 * 1024 * 1024) {
+        showToast(
+            "Captured photo exceeds 2 MB. Please retake."
+        );
+        return;
+    }
+
+    /* Apply to preview */
+
+    photoDataUrl = capturedImageData;
+
+    photoPreview.innerHTML =
+        `<img src="${photoDataUrl}" alt="Photo">`;
+
+    photoRemoveBtn.classList.remove("hidden");
+
+    /* Close modal and stop camera */
+
+    closeCamera();
+
+    showToast("Live photo captured successfully.", "success");
+});
+
+
+/* CLOSE CAMERA */
+
+cameraCloseBtn.addEventListener("click", function () {
+    closeCamera();
+});
+
+
+function closeCamera() {
+
+    cameraModal.classList.add("hidden");
+
+    if (cameraMediaStream) {
+        cameraMediaStream
+            .getTracks()
+            .forEach((track) => track.stop());
+
+        cameraMediaStream = null;
+    }
+
+    cameraStream.srcObject = null;
+
+    capturedImageData = "";
+
+    cameraStream.classList.remove("hidden");
+    cameraCanvas.classList.add("hidden");
+
+    cameraCaptureBtn.classList.remove("hidden");
+    cameraRetakeBtn.classList.add("hidden");
+    cameraSaveBtn.classList.add("hidden");
+}
+
+
+/* Close camera when clicking outside modal */
+
+cameraModal.addEventListener("click", function (event) {
+    if (event.target === cameraModal) {
+        closeCamera();
+    }
+});
+
+
+/* Close camera on Escape key */
+
+document.addEventListener("keydown", function (event) {
+    if (
+        event.key === "Escape" &&
+        !cameraModal.classList.contains("hidden")
+    ) {
+        closeCamera();
+    }
 });
 
 
@@ -502,6 +728,17 @@ function validateForm() {
         return false;
     }
 
+    /* ---- Education ---- */
+
+    const qualification = document.getElementById("qualification");
+
+    if (!qualification.value) {
+        markError(qualification);
+        showToast("Please select Qualification.");
+        qualification.focus();
+        return false;
+    }
+
     /* ---- Additional ---- */
 
     const disability = document.getElementById("disability");
@@ -600,6 +837,10 @@ function collectApplicationData() {
             totalExperience: getValue("totalExperience"),
             lastSalary: getValue("lastSalary"),
             expectedSalary: getValue("expectedSalary")
+        },
+
+        education: {
+            qualification: getValue("qualification")
         },
 
         dependents: collectDependents(),
